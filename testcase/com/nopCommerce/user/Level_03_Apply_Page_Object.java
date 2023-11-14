@@ -84,13 +84,7 @@ public class Level_03_Apply_Page_Object extends BasePage{
 		registerPageObject.inputToEmailTextbox("abc123");
 		registerPageObject.inputToPasswordTextbox(password);
 		registerPageObject.inputToConfirmPasswordTextbox(password);
-		
-	    sendKeyToElement(driver, "//input[@id='FirstName']", "Phuong");
-	    sendKeyToElement(driver, "//input[@id='LastName']", "Nguyen");
-	    sendKeyToElement(driver, "//input[@id='Email']", "huong123@");
-	    sendKeyToElement(driver, "//input[@id='Password']", "123456");
-	    sendKeyToElement(driver, "//input[@id='ConfirmPassword']", "123456");
-	    
+	
 	    registerPageObject.clickToRegisterButton();
 		
 		Assert.assertEquals(registerPageObject.getErrorMessageAtEmailTextbox(), "Wrong email");
