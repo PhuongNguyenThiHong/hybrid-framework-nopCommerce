@@ -2,7 +2,7 @@
 <suite parallel="false" name="NopCommerce">
   <test name="Run on Firefox">
     <classes>
-      <class name="com.nopCommerce.user.Level_03_Apply_Page_Object"/>
+      <class name="com.nopCommerce.user.Level_03_Apply_Page_Object_Login"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

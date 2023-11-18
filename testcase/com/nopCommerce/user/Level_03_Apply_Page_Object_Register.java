@@ -3,10 +3,9 @@ package com.nopCommerce.user;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -16,7 +15,7 @@ import commons.BasePage;
 import pageObject.HomePageObject;
 import pageObject.RegisterPageObject;
 
-public class Level_03_Apply_Page_Object extends BasePage{
+public class Level_03_Apply_Page_Object_Register extends BasePage{
 	WebDriver driver;
 
 	String projectPath = System.getProperty("user.dir");
@@ -60,7 +59,7 @@ public class Level_03_Apply_Page_Object extends BasePage{
 	}
 
 	@Test
-	public void TC_01_Register_Empty_Data() {
+	public void Register_01_Empty_Data() {
 		
         homePageObject.clickToRegisterLink();  
 		
@@ -75,7 +74,7 @@ public class Level_03_Apply_Page_Object extends BasePage{
 	}
 	
 	@Test
-	public void TC_02_Register_Invalid_Email() {
+	public void Register_02_Invalid_Email() {
           
 		homePageObject.clickToRegisterLink();  
 		
@@ -92,7 +91,7 @@ public class Level_03_Apply_Page_Object extends BasePage{
 	}
 	
 	@Test
-	public void TC_03_Register_Successfully() {
+	public void Register_03_Successfully() {
           
 		homePageObject.clickToRegisterLink();  
 		
@@ -105,11 +104,12 @@ public class Level_03_Apply_Page_Object extends BasePage{
 	    registerPageObject.clickToRegisterButton();
 		
 		Assert.assertEquals(registerPageObject.getRegisterSuccessMessage(), "Your registration completed");
+		
 					
 	}
 	
 	@Test
-	public void TC_04_Register_Exist_Email() {
+	public void Register_04_Exist_Email() {
 	     
 	    homePageObject.clickToRegisterLink();  
 			
@@ -126,7 +126,7 @@ public class Level_03_Apply_Page_Object extends BasePage{
 	}
 	
 	@Test
-	public void TC_05_Register_Password_Less_Than_6Characters() {
+	public void Register_05_Password_Less_Than_6Characters() {
           
 		homePageObject.clickToRegisterLink();  
 		
@@ -143,7 +143,7 @@ public class Level_03_Apply_Page_Object extends BasePage{
 	}
 	
 	@Test
-	public void TC_06_Register_Invalid_ConfirmPass() {
+	public void Register_06_Invalid_ConfirmPass() {
           
         homePageObject.clickToRegisterLink();  
 		

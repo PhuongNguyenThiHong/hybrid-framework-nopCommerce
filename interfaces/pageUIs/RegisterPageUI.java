@@ -16,6 +16,7 @@ public class RegisterPageUI {
 	
 	public static final String REGISTER_SUCCESS_MESSAGE="//div[@class='result']";
 	public static final String EXIST_EMAIL_MESSAGE="//div[contains(@class,'message-error')]//li";
+
 	
 
 }

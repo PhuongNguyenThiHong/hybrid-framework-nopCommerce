@@ -7,7 +7,7 @@ import pageUIs.RegisterPageUI;
 
 public class RegisterPageObject extends BasePage{
 
-    WebDriver driver;
+    private WebDriver driver;
    
 	public RegisterPageObject(WebDriver driver) {
 		this.driver = driver;
@@ -84,6 +84,7 @@ public class RegisterPageObject extends BasePage{
 		waitForElementVisible(driver, RegisterPageUI.EXIST_EMAIL_MESSAGE);
 		return getElementText(driver, RegisterPageUI.EXIST_EMAIL_MESSAGE);
 	}
+
 
 
 }
