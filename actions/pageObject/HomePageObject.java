@@ -7,39 +7,42 @@ import pageUIs.HomePageUI;
 
 public class HomePageObject extends BasePage {
 	
-	private WebDriver dirver;
+	private WebDriver driver;
 
-	public HomePageObject(WebDriver dirver) {
-		this.dirver = dirver;
+	public HomePageObject(WebDriver driver) {
+		this.driver = driver;
 	}
 
 
 
-	public void clickToRegisterLink() {
+	public RegisterPageObject clickToRegisterLink() {
 		// TODO Auto-generated method stub
-		waitForElementClickable(dirver, HomePageUI.REGISTER_LINK);
-		clickToElement(dirver, HomePageUI.REGISTER_LINK);
+		waitForElementClickable(driver, HomePageUI.REGISTER_LINK);
+		clickToElement(driver, HomePageUI.REGISTER_LINK);
+		
+		return PageObjectGeneratorManager.getRegisterObject(driver);
 	}
 
 
-	public void clickLoginLink() {
-		waitForElementClickable(dirver, HomePageUI.LOGIN_LINK);
-		clickToElement(dirver, HomePageUI.LOGIN_LINK);
-		
+	public LoginPageObject clickLoginLink() {
+		waitForElementClickable(driver, HomePageUI.LOGIN_LINK);
+		clickToElement(driver, HomePageUI.LOGIN_LINK);
+		// cach 2 - return new LoginPageObject(driver);
+		return PageObjectGeneratorManager.getLoginPageObject(driver);
 	}
 
 
 
 	public boolean isMyAccountDisplay() {
-		waitForElementVisible(dirver,  HomePageUI.MY_ACCOUNT_LINK);
-		return isElementDisplay(dirver, HomePageUI.MY_ACCOUNT_LINK);
+		waitForElementVisible(driver,  HomePageUI.MY_ACCOUNT_LINK);
+		return isElementDisplay(driver, HomePageUI.MY_ACCOUNT_LINK);
 	}
 
 
 
 	public void clickLogOutLink() {
-		waitForElementClickable(dirver, HomePageUI.LOGOUT_LINK);
-		clickToElement(dirver, HomePageUI.LOGOUT_LINK);
+		waitForElementClickable(driver, HomePageUI.LOGOUT_LINK);
+		clickToElement(driver, HomePageUI.LOGOUT_LINK);
 		
 	}
 

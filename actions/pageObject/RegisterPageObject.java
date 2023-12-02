@@ -13,10 +13,11 @@ public class RegisterPageObject extends BasePage{
 		this.driver = driver;
 	}
 
-	public void clickToRegisterButton() {
+	public HomePageObject clickToRegisterButton() {
 		
 		waitForElementClickable(driver, RegisterPageUI.REGISTER_BUTTON);
 		clickToElement(driver, RegisterPageUI.REGISTER_BUTTON);
+		return PageObjectGeneratorManager.getHomePageObject(driver);
 		
 	}
 	
