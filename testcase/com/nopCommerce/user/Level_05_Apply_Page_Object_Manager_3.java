@@ -19,7 +19,7 @@ import pageObject.LoginPageObject;
 import pageObject.PageObjectGeneratorManager;
 import pageObject.RegisterPageObject;
 
-public class Level_03_Apply_Page_Object_Manager_3 extends BaseTest{
+public class Level_05_Apply_Page_Object_Manager_3 extends BaseTest{
 	WebDriver driver;
 
 	String projectPath = System.getProperty("user.dir");

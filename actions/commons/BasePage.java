@@ -15,12 +15,21 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObject.AddressesPageObject;
+import pageObject.CustomerInfoPageObject;
+import pageObject.MyProductReviewPageObject;
+import pageObject.OrdersPageObject;
+import pageObject.PageObjectGeneratorManager;
+import pageUIs.BasePageUI;
+import pageUIs.RegisterPageUI;
+
 public class BasePage {
 	//chua cac ham dung chung cho PageObject
 	
 	public static BasePage getBasePageObject() {
 		return new BasePage();
 	}
+	
 	//Nhiem vu la mo ra 1 URL
 		public void openPageUrl(WebDriver driver, String pageUrl){
 			driver.get(pageUrl);
@@ -372,6 +381,35 @@ public class BasePage {
 		public void waitForElementClickable(WebDriver driver, String xpathLocator) {
 			WebDriverWait explicitWait = new WebDriverWait(driver, longTimeout);
 			explicitWait.until(ExpectedConditions.elementToBeClickable(getByXpath(xpathLocator)));
+		}
+		
+
+		public CustomerInfoPageObject openCustomerInfoPage(WebDriver driver) {
+			waitForElementClickable(driver, BasePageUI.CUSTOMER_INFOR_LINK);
+			clickToElement(driver, BasePageUI.CUSTOMER_INFOR_LINK);
+			return PageObjectGeneratorManager.getCustomerInfoPageObject(driver);
+			
+		}
+		
+		public AddressesPageObject openAddressesPage(WebDriver driver) {
+			waitForElementClickable(driver, BasePageUI.ADDRESSES_LINK);
+			clickToElement(driver, BasePageUI.ADDRESSES_LINK);
+			return PageObjectGeneratorManager.getAddressesPageObject(driver);
+			
+		}
+		
+		public OrdersPageObject openOrdersPage(WebDriver driver) {
+			waitForElementClickable(driver, BasePageUI.ORDERS_LINK);
+			clickToElement(driver, BasePageUI.ORDERS_LINK);
+			return PageObjectGeneratorManager.getOrdersPageObject(driver);
+			
+		}
+		
+		public MyProductReviewPageObject openMyProductReviewPage(WebDriver driver) {
+			waitForElementClickable(driver, BasePageUI.MYPRODUCT_REVIEW_LINK);
+			clickToElement(driver, BasePageUI.MYPRODUCT_REVIEW_LINK);
+			return PageObjectGeneratorManager.getMyProductReviewPageObject(driver);
+			
 		}
 		
 		private long longTimeout =30;

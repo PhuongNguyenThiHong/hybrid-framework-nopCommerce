@@ -9,6 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BasePage;
@@ -17,7 +18,7 @@ import pageObject.HomePageObject;
 import pageObject.PageObjectGeneratorManager;
 import pageObject.RegisterPageObject;
 
-public class Level_03_Apply_Page_Object_Register_3 extends BaseTest{
+public class Level_05_Apply_Page_Object_Register_3 extends BaseTest{
 	WebDriver driver;
 
 	String projectPath = System.getProperty("user.dir");
@@ -27,11 +28,12 @@ public class Level_03_Apply_Page_Object_Register_3 extends BaseTest{
 	HomePageObject homePageObject;
 	RegisterPageObject registerPageObject; 
 
+	@Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
 		driver = getBrowserDriver(browserName);
 		
-		homePageObject = PageObjectGeneratorManager.getHomePageObject(driver);
+	
 		
 		firstName="Phuong";
 		lastName="Nguyen";
@@ -46,6 +48,8 @@ public class Level_03_Apply_Page_Object_Register_3 extends BaseTest{
 		address="23 bla california, US";
 		zipcode="0987";
 		phonenumber="0987654444";
+		
+		homePageObject = PageObjectGeneratorManager.getHomePageObject(driver);
 		
 		
 	}

@@ -5,19 +5,19 @@ import org.openqa.selenium.WebDriver;
 import commons.BasePage;
 import pageUIs.LoginPageUI;
 
-public class LoginPageObject extends BasePage {
+public class AdminLoginPageObject extends BasePage {
 	
 	private WebDriver driver;
 
-	public LoginPageObject(WebDriver driver) {
+	public AdminLoginPageObject(WebDriver driver) {
 		this.driver = driver;
 	}
 
-	public HomePageObject clickToLoginButton() {
+	public AdminDashboardPageOject clickToLoginButton() {
 		waitForElementClickable(driver, LoginPageUI.LOGIN_BUTTON);
 		clickToElement(driver, LoginPageUI.LOGIN_BUTTON);
 		//return  new HomePageObject(driver);
-		return PageObjectGeneratorManager.getHomePageObject(driver);
+		return PageObjectGeneratorManager.getDashboardAdmin(driver);
 	}
 
 	public String getErrorMessageAtEmailTextBox() {
@@ -41,7 +41,7 @@ public class LoginPageObject extends BasePage {
 		
 	}
 	
-	public HomePageObject loginAsUser (String email, String password) {
+	public AdminDashboardPageOject loginAsAdmin (String email, String password) {
 		inputEmailTextBox(email);
 		inputPasswordTextBox (password);
 		return clickToLoginButton();

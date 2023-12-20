@@ -21,6 +21,14 @@ public class RegisterPageObject extends BasePage{
 		
 	}
 	
+    public CustomerInfoPageObject clickMyAccountLink() {
+		
+		waitForElementClickable(driver, RegisterPageUI.ACCOUNT_LINK);
+		clickToElement(driver, RegisterPageUI.ACCOUNT_LINK);
+		return PageObjectGeneratorManager.getCustomerInfoPageObject(driver);
+		
+	}
+	
 	public String getErrorMessageAtFirstnameTextbox() {
 		waitForElementVisible(driver, RegisterPageUI.FIRSTNAME_ERROR_MESSAGE);
 		return getElementText(driver, RegisterPageUI.FIRSTNAME_ERROR_MESSAGE);
