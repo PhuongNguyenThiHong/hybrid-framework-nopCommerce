@@ -21,6 +21,14 @@ public class RegisterPageObject extends BasePage{
 		
 	}
 	
+   public LoginPageObject clickToLoginLink() {
+		
+		waitForElementClickable(driver, RegisterPageUI.LOGIN_LINK);
+		clickToElement(driver, RegisterPageUI.LOGIN_LINK);
+		return PageObjectGeneratorManager.getLoginPageObject(driver);
+		
+	}
+	
     public CustomerInfoPageObject clickMyAccountLink() {
 		
 		waitForElementClickable(driver, RegisterPageUI.ACCOUNT_LINK);

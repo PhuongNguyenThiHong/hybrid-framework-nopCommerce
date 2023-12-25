@@ -18,6 +18,8 @@ public class RegisterPageUI {
 	public static final String EXIST_EMAIL_MESSAGE="//div[contains(@class,'message-error')]//li";
 	
 	public static final String ACCOUNT_LINK="//div[@class='header-links']//a[text()='My account']";
+	
+	public static final String LOGIN_LINK="//a[text()='Log in']";
 
 	
 

@@ -20,6 +20,12 @@ public class Level_01_StringFormat {
 		System.out.println("Click to "+ locator);
 	}
 	
+	public static void clickToSidebarLink(String dynamicLink, String...paramsValue) {
+		String locator = String.format(dynamicLink, (Object[]) paramsValue);
+		
+		System.out.println("Click to "+ locator);
+	}
+	
 public static void main(String[]args) {
 		
 		clickToSidebarLink(DYNAMIC_SIDEBAR_LINK, "Customer info");

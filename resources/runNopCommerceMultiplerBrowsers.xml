@@ -4,7 +4,7 @@
   <test name="Run on Firefox">
     <parameter name="browser" value="firefox"/>
     <classes>
-      <class name="com.nopCommerce.user.Level_07_Apply_Switch_Users"/>
+      <class name="com.nopCommerce.user.Level_08_Apply_Dynamic_Locator"/>
     </classes>
   </test> 
   
