@@ -57,9 +57,42 @@ public class BaseTest {
 		
 		return driver;
 		
+	}
+	
+protected WebDriver getBrowserDriver(String browserName, String appUrl) {
+		
+		switch (browserName) {
+		case "firefox":
+			//System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
+			WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver();
+			
+			break;
+		case "chrome":
+			//System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
+			break;
+		case "edge":
+			//System.setProperty("webdriver.edge.driver", projectPath + "\\browserDrivers\\msedgedriver.exe");
+			WebDriverManager.edgedriver().setup();
+			driver = new EdgeDriver();
+			break;
+
+		default: throw new RuntimeException("Vui long nhap dung trinh duyet");
+			
+		}
+		
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		driver.get(appUrl);
+		
+		return driver;
+		
 	
 		
 	}
+	
 	
 	
 

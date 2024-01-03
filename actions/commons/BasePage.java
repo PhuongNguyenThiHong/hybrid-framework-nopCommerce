@@ -9,6 +9,7 @@ import java.util.Set;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -321,6 +322,15 @@ public class BasePage {
 	    	actions.moveToElement(getWebElement(driver,xpathLocator)).perform();
 	    }
 	    
+	    public void pressKeyToElement(WebDriver driver, String xpathLocator, Keys key) {
+	    	Actions actions = new Actions(driver);
+	    	actions.sendKeys(getWebElement(driver,xpathLocator),key).perform();
+	    }
+	    
+	    public void pressKeyToElement(WebDriver driver, String xpathLocator, Keys key, String...dynamicValues) {
+	    	Actions actions = new Actions(driver);
+	    	actions.sendKeys(getDynamicXpath(xpathLocator, dynamicValues),key).perform();
+	    }
 
 
 		public void scrollToBottomPage(WebDriver driver) {
@@ -518,6 +528,8 @@ public class BasePage {
 			}
 			
 		}
+		
+		
 		
 		private long longTimeout =30;
 		private long shortTimeout =5;
