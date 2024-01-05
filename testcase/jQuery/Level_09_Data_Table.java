@@ -1,5 +1,6 @@
 package jQuery;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -42,10 +43,9 @@ public class Level_09_Data_Table extends BaseTest{
 		
 	}
 
-
-	
 	public void Table_01_Paging() {
 		//open page 7
+		//url:https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/
 		
 		homePageObjectJQuery.openPagingByPageNumber("7");
 		homePageObjectJQuery.sleepInSecond(3);
@@ -73,13 +73,32 @@ public class Level_09_Data_Table extends BaseTest{
 		 
 	}
 	
-	@Test
 	public void Table_02_Enter_Value_Finding() {
 		homePageObjectJQuery.findingByFieldName("Country","Argentina");
 		homePageObjectJQuery.findingByFieldName("Females","338282");
 		homePageObjectJQuery.findingByFieldName("Total","687522");
 
-		Assert.assertEquals(homePageObjectJQuery.getTextValueByFieldName("country"), "Argentina");
+		Assert.assertEquals(homePageObjectJQuery.getTextValueByFieldName("country"), "Argentina");	
+		
+	}
+	
+	public void Table_03_GetAllRowsInAllPage() {
+		//https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/
+		homePageObjectJQuery.getAllRowsInAllPages();
+		
+	}
+	
+	@Test
+	public void Table_04_InputDataInAnyRowInTable() {
+		homePageObjectJQuery.inputDataInAnyRowInTable("Contact Person","2","phuong nguyen");
+		homePageObjectJQuery.inputDataInAnyRowInTable("Contact Person","3","Hai Lan");
+		homePageObjectJQuery.inputDataInAnyRowInTable("Company","2","NashTech");
+		homePageObjectJQuery.inputDataInAnyRowInTable("Order Placed","2","124");
+		
+		homePageObjectJQuery.selectDataInDropDownInAnyRow("Country","2","Japan");
+		
+		homePageObjectJQuery.checkBoxInAnyRow("NPO?","2");
+	
 		
 		
 	}

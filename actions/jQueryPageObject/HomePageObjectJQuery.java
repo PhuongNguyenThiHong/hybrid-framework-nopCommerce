@@ -1,11 +1,17 @@
 package jQueryPageObject;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.lang.model.element.Element;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import commons.BasePage;
 import jQueryPageUI.HomePageUI;
-import pageUIs.RegisterPageUI;
 
 public class HomePageObjectJQuery extends BasePage {
 	
@@ -38,6 +44,52 @@ public class HomePageObjectJQuery extends BasePage {
 
 	}
 
+	public ArrayList getAllRowsInAllPages() {
+		int totalPage = getElementSize(driver, HomePageUI.TOTAL_PAGE);
+		List<String> allRowsInAllPages = new ArrayList<String>();
+		for (int i = 1; i <= totalPage; i++) {
+			
+			waitForElementVisible(driver, HomePageUI.PAGING_URL, String.valueOf(i));
+			clickToElement(driver, HomePageUI.PAGING_URL, String.valueOf(i));
+			
+			List<WebElement> allRowsEachPage = getListElement(driver, HomePageUI.TOTAL_ROWS_IN_EACH_PAGE);
+			for (WebElement eachRow : allRowsEachPage) {
+				allRowsInAllPages.add(eachRow.getText());
+			}
+			
+		}
+		
+		for (String row : allRowsInAllPages) {
+			System.out.println("-------------------");
+			System.out.println(row);
+			
+		}
+		
+		return (ArrayList) allRowsInAllPages;
+		
+	}
 
+	public void inputDataInAnyRowInTable(String columnName, String rowNumber, String valueInputText) {
+		int indexColumn = getElementSize(driver, HomePageUI.INDEX_BY_COLUMNNAME, columnName) + 1;
+		
+		waitForElementVisible(driver, HomePageUI.TEXTBOX_BY_COLUMN_AND_ROW_INDEX, rowNumber,String.valueOf(indexColumn));
+		sendKeyToElement(driver, HomePageUI.TEXTBOX_BY_COLUMN_AND_ROW_INDEX, valueInputText, rowNumber, String.valueOf(indexColumn));
+		
+		
+	}
+
+	public void selectDataInDropDownInAnyRow(String columnName, String rowNumber, String valueSelected) {
+		int indexColumn = getElementSize(driver, HomePageUI.INDEX_BY_COLUMNNAME, columnName) + 1;
+		waitForElementClickable(driver, HomePageUI.SELECT_BY_COLUMN_AND_ROW_INDEX, rowNumber,String.valueOf(indexColumn));
+		selectItemDefaultDropDown(driver, HomePageUI.SELECT_BY_COLUMN_AND_ROW_INDEX, valueSelected, rowNumber, String.valueOf(indexColumn));
+		
+	}
+
+	public void checkBoxInAnyRow(String columnName, String rowNumber) {
+		int indexColumn = getElementSize(driver, HomePageUI.INDEX_BY_COLUMNNAME, columnName) + 1;
+		waitForElementClickable(driver, HomePageUI.CHECK_BOX_BY_COLUMN_AND_ROW_INDEX, rowNumber,String.valueOf(indexColumn));
+		checkToDefaultCheckBoxRadio(driver, HomePageUI.CHECK_BOX_BY_COLUMN_AND_ROW_INDEX, rowNumber,String.valueOf(indexColumn));
+		
+	}
 
 }

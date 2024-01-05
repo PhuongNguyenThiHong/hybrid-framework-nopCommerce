@@ -200,6 +200,13 @@ public class BasePage {
 			
 		}
 		
+		public void selectItemDefaultDropDown(WebDriver driver, String xpathLocator, String textItem,  String...dynamicValues) {
+			
+			Select select = new Select(getWebElement(driver, getDynamicXpath(xpathLocator, dynamicValues))) ;
+			select.selectByValue(textItem);
+			
+		}
+		
 		public String getSelectItemDefaultDropDown(WebDriver driver, String xpathLocator) {
 			
 			Select select = new Select(getWebElement(driver, xpathLocator)) ;
@@ -267,7 +274,7 @@ public class BasePage {
 	    	return Color.fromString(rgbaValue).asHex().toUpperCase();
 	    }
 	    
-	    private List<WebElement> getListElement(WebDriver driver, String xpathLocator) {
+	    public List<WebElement> getListElement(WebDriver driver, String xpathLocator) {
 	    	return driver.findElements(getByXpath(xpathLocator));
 	    }
 	    
@@ -283,6 +290,14 @@ public class BasePage {
 	    
 	    public void checkToDefaultCheckBoxRadio(WebDriver driver, String xpathLocator) {
 	    	WebElement element = getWebElement(driver, xpathLocator);
+	    	if (!element.isSelected()) {
+	    		element.click();
+	    	}
+	    	
+	    }
+	    
+	    public void checkToDefaultCheckBoxRadio(WebDriver driver, String xpathLocator, String...dynamicValues) {
+	    	WebElement element = getWebElement(driver, getDynamicXpath(xpathLocator, dynamicValues));
 	    	if (!element.isSelected()) {
 	    		element.click();
 	    	}
